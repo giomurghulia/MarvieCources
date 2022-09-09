@@ -9,22 +9,25 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.graphics.ColorUtils
 import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.marviecources.databinding.LayoutActiveCoursesBinding
 import com.example.marviecources.databinding.LayoutNewCourcesBinding
+import com.example.marviecources.databinding.LayoutNewCourseRecyclerBinding
 import okhttp3.internal.toHexString
 
 class MainAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(MainDiffUtil()) {
 
+    private val secondAdapter = SecondAdapter()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
 
         return when (viewType) {
             ListItem.ViewType.NEW_COURSE.ordinal -> NewCourseViewHolder(
-                LayoutNewCourcesBinding.inflate(
+                LayoutNewCourseRecyclerBinding.inflate(
                     layoutInflater,
                     parent,
                     false
@@ -55,10 +58,18 @@ class MainAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(MainDiffUtil(
     }
 
     inner class NewCourseViewHolder(
-        private val binding: LayoutNewCourcesBinding
+        private val binding: LayoutNewCourseRecyclerBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(items: ListItem.NewCourseItem) {
 
+            secondAdapter.submitList(items.newCourse)
+
+        }
+
+        init {
+            binding.newCourseRecycler.layoutManager =
+                LinearLayoutManager(itemView.context, LinearLayoutManager.HORIZONTAL,false)
+            binding.newCourseRecycler.adapter = secondAdapter
         }
     }
 
@@ -133,6 +144,7 @@ class MainAdapter : ListAdapter<ListItem, RecyclerView.ViewHolder>(MainDiffUtil(
 //            )
             return color
         }
+
     }
 
 }

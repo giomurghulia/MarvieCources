@@ -7,6 +7,7 @@
     android:background="@drawable/shape_background_item"
     android:backgroundTint="@color/black"
     android:paddingHorizontal="24dp"
+    android:layout_marginEnd="10dp"
     android:paddingVertical="30dp">
 
     <ImageView
@@ -58,7 +59,7 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/time_textView"
-        tools:src="@drawable/ic_play" />
+        android:src="@drawable/ic_play" />
 
     <TextView
         android:id="@+id/start_title_text"

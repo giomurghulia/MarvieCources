@@ -5,9 +5,11 @@
       <map>
         <entry key="app/src/main/res/drawable/circular_progress_bar.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/ic_active_play.xml" value="0.116" />
+        <entry key="app/src/main/res/drawable/ic_heart.xml" value="0.1155" />
         <entry key="app/src/main/res/drawable/ic_play.xml" value="0.116" />
         <entry key="app/src/main/res/drawable/ic_setting.xml" value="0.116" />
         <entry key="app/src/main/res/drawable/ic_triangle.xml" value="0.116" />
+        <entry key="app/src/main/res/drawable/shape_background_item.xml" value="0.116" />
         <entry key="app/src/main/res/drawable/shape_new_cources.xml" value="0.114" />
         <entry key="app/src/main/res/drawable/shape_play_background.xml" value="0.1155" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.27794871794871795" />
